@@ -202,14 +202,14 @@ pyflakes = ">=2.5.0,<2.6.0"
 
 [[package]]
 name = "flake8-bugbear"
-version = "22.12.6"
+version = "23.1.14"
 description = "A plugin for flake8 finding likely bugs and design problems in your program. Contains warnings that don't belong in pyflakes and pycodestyle."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "flake8-bugbear-22.12.6.tar.gz", hash = "sha256:4cdb2c06e229971104443ae293e75e64c6107798229202fbe4f4091427a30ac0"},
-    {file = "flake8_bugbear-22.12.6-py3-none-any.whl", hash = "sha256:b69a510634f8a9c298dfda2b18a8036455e6b19ecac4fe582e4d7a0abfa50a30"},
+    {file = "flake8-bugbear-23.1.14.tar.gz", hash = "sha256:ba31dd954ef9c2a8f523adee3fdd78d1f9dd1afcba59cc6ad4c116e2cc1563f3"},
+    {file = "flake8_bugbear-23.1.14-py3-none-any.whl", hash = "sha256:ecaeb93acbd02f26f2246907b0e4c291cafdf65ef2ea24bbdbb596fd8d30605e"},
 ]
 
 [package.dependencies]
@@ -217,24 +217,27 @@ attrs = ">=19.2.0"
 flake8 = ">=3.0.0"
 
 [package.extras]
-dev = ["coverage", "hypothesis", "hypothesmith (>=0.2)", "pre-commit", "tox"]
+dev = ["coverage", "hypothesis", "hypothesmith (>=0.2)", "pre-commit", "pytest", "tox"]
 
 [[package]]
 name = "flake8-pyi"
-version = "22.11.0"
-description = "A plugin for flake8 to enable linting .pyi files."
+version = "23.1.0"
+description = "A plugin for flake8 to enable linting .pyi stub files."
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "flake8-pyi-22.11.0.tar.gz", hash = "sha256:ded2e4d947f0605abe9095ae3d38b01b7880b112bc3da0b4f888cd4a717c7acd"},
-    {file = "flake8_pyi-22.11.0-py37-none-any.whl", hash = "sha256:67920f7186097b2bccfa6605ef876ab5874c2f43115b13460b525a6d8da5ddb0"},
+    {file = "flake8_pyi-23.1.0-py3-none-any.whl", hash = "sha256:0c724270d9ee4fee19261a3cc4467599530ebadb1233557a8e113eb4373aeec0"},
+    {file = "flake8_pyi-23.1.0.tar.gz", hash = "sha256:01f3f70f1330a1fe2c91be2b332bc73fa94ee8f59ad3e2e37377670ddfb10fd7"},
 ]
 
 [package.dependencies]
 ast-decompiler = {version = ">=0.7.0,<1.0", markers = "python_version < \"3.9\""}
 flake8 = ">=3.2.1,<7.0.0"
 pyflakes = ">=2.1.1"
+
+[package.extras]
+dev = ["black (==22.12.0)", "flake8-bugbear (==23.1.14)", "flake8-noqa (==1.3.0)", "isort (==5.11.4)", "mypy (==0.991)", "pytest (==7.2.1)", "types-pyflakes (<4)"]
 
 [[package]]
 name = "flask"
@@ -359,14 +362,14 @@ test = ["faulthandler", "objgraph", "psutil"]
 
 [[package]]
 name = "hypothesis"
-version = "6.62.0"
+version = "6.62.1"
 description = "A library for property-based testing"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "hypothesis-6.62.0-py3-none-any.whl", hash = "sha256:e250da77878460f74b53039493a7a18d6fc137b0b77791b382b6a0f4ada9144e"},
-    {file = "hypothesis-6.62.0.tar.gz", hash = "sha256:76f1141e8237f6dd0780a171bec5d6aec873208ccc27b5f9753d4cccd8904272"},
+    {file = "hypothesis-6.62.1-py3-none-any.whl", hash = "sha256:d00a4a9c54b0b8b4570fe1abe42395807a973b4a507e6718309800e6f84e160d"},
+    {file = "hypothesis-6.62.1.tar.gz", hash = "sha256:7d1e2f9871e6509662da317adf9b4aabd6b38280fb6c7930aa4f574d2ed25150"},
 ]
 
 [package.dependencies]
@@ -664,14 +667,14 @@ files = [
 
 [[package]]
 name = "pbr"
-version = "5.11.0"
+version = "5.11.1"
 description = "Python Build Reasonableness"
 category = "dev"
 optional = false
 python-versions = ">=2.6"
 files = [
-    {file = "pbr-5.11.0-py2.py3-none-any.whl", hash = "sha256:db2317ff07c84c4c63648c9064a79fe9d9f5c7ce85a9099d4b6258b3db83225a"},
-    {file = "pbr-5.11.0.tar.gz", hash = "sha256:b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"},
+    {file = "pbr-5.11.1-py2.py3-none-any.whl", hash = "sha256:567f09558bae2b3ab53cb3c1e2e33e726ff3338e7bae3db5dc954b3a44eef12b"},
+    {file = "pbr-5.11.1.tar.gz", hash = "sha256:aefc51675b0b533d56bb5fd1c8c6c0522fe31896679882e1c4c63d5e4a0fccb3"},
 ]
 
 [[package]]
@@ -803,14 +806,14 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "7.2.0"
+version = "7.2.1"
 description = "pytest: simple powerful testing with Python"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pytest-7.2.0-py3-none-any.whl", hash = "sha256:892f933d339f068883b6fd5a459f03d85bfcb355e4981e146d2c7616c21fef71"},
-    {file = "pytest-7.2.0.tar.gz", hash = "sha256:c4014eb40e10f11f355ad4e3c2fb2c6c6d1919c73f3b5a433de4708202cade59"},
+    {file = "pytest-7.2.1-py3-none-any.whl", hash = "sha256:c7c6ca206e93355074ae32f7403e8ea12163b1163c976fee7d4d84027c162be5"},
+    {file = "pytest-7.2.1.tar.gz", hash = "sha256:d45e0952f3727241918b8fd0f376f5ff6b301cc0777c6f9a556935c92d8a7d42"},
 ]
 
 [package.dependencies]
@@ -1153,4 +1156,4 @@ sqlalchemy = []
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.7,<4"
-content-hash = "a427688820af56568c44438de37acd22318d29b4eb8500cc40d7303d670b7cc9"
+content-hash = "4394fab84f0c411db19615020a98deca6d73d1d72510333cbc2950b887f7287f"
