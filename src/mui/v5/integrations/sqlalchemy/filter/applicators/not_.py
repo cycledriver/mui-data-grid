@@ -1,6 +1,6 @@
 """The is not applicator applies the is not operator to the data.
 """
-from datetime import datetime
+from datetime import datetime, date, time
 from operator import ne
 from typing import Any
 
@@ -19,6 +19,6 @@ def apply_not_operator(column: Any, value: Any) -> Any:
     Returns:
         Any: The column after applying the is filter using the provided value.
     """
-    if column.type.python_type == str:
-        return ne(column, value)
-    return ne(column, datetime.fromisoformat(value))
+    if column.type.python_type in {datetime, time, date} and value is not None:
+        return ne(column, datetime.fromisoformat(value))
+    return ne(column, value)

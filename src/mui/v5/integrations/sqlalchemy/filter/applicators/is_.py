@@ -2,11 +2,9 @@
 
 Meant as an equality check.
 """
-from datetime import datetime
+from datetime import datetime, date, time
 from operator import eq
 from typing import Any
-
-from sqlalchemy import Date, DateTime, Time
 
 
 def apply_is_operator(column: Any, value: Any) -> Any:
@@ -23,8 +21,6 @@ def apply_is_operator(column: Any, value: Any) -> Any:
     Returns:
         Any: The column after applying the is filter using the provided value.
     """
-    # TODO: convert to column.type.python_type like isNot
-    if isinstance(column.type, (DateTime, Time, Date)) and value is not None:
+    if column.type.python_type in {datetime, time, date} and value is not None:
         return eq(column, datetime.fromisoformat(value))
-    else:
-        return eq(column, value)
+    return eq(column, value)
