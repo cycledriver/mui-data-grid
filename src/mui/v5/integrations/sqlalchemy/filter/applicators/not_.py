@@ -8,6 +8,9 @@ from typing import Any
 def apply_not_operator(column: Any, value: Any) -> Any:
     """Handles applying the not x-data-grid operator to a column.
 
+    The not operator exists on enum selections as well as datetimes. Care
+    needs to be given as a result.
+
     Args:
         column (Any): The column the operator is being applied to, or equivalent
             property, expression, subquery, etc.
@@ -16,4 +19,6 @@ def apply_not_operator(column: Any, value: Any) -> Any:
     Returns:
         Any: The column after applying the is filter using the provided value.
     """
+    if column.type.python_type == str:
+        return ne(column, value)
     return ne(column, datetime.fromisoformat(value))

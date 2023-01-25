@@ -23,6 +23,7 @@ def apply_is_operator(column: Any, value: Any) -> Any:
     Returns:
         Any: The column after applying the is filter using the provided value.
     """
+    # TODO: convert to column.type.python_type like isNot
     if isinstance(column.type, (DateTime, Time, Date)) and value is not None:
         return eq(column, datetime.fromisoformat(value))
     else:
