@@ -40,7 +40,7 @@ pyupgrade = "^3.3.1"
 flask = ">=2,<3"
 
 [tool.poetry.group.sqlalchemy.dependencies]
-sqlalchemy = ">=1.4,<3"
+sqlalchemy = ">=1.4,<2"
 sqlalchemy2-stubs = ">=0.0.2a29"
 
 [build-system]
