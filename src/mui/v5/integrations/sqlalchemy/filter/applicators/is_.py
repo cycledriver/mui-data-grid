@@ -23,4 +23,14 @@ def apply_is_operator(column: Any, value: Any) -> Any:
     """
     if column.type.python_type in {datetime, time, date} and value is not None:
         return eq(column, datetime.fromisoformat(value))
+    if column.type.python_type in {bool} and value is not None:
+        # "" is used to represent "any" in MUI v5
+        if value in {"", "any"}:
+            return column.in_((True, False))
+        elif value == "true":
+            return eq(column, True)
+        elif value == "false":
+            return eq(column, False)
+        else:
+            raise ValueError(f"Unexpected boolean filter value received: {value}")
     return eq(column, value)
