@@ -36,7 +36,7 @@ class RequestGridModels(GridBaseModel):
         example=GridFilterModel(
             items=[
                 GridFilterItem(
-                    column_field="fieldName",
+                    column_field="fieldName",  # type: ignore[call-arg]
                     id=123,
                     operator_value="!=",
                     value="Field Value",
@@ -54,7 +54,7 @@ class RequestGridModels(GridBaseModel):
             "The pagination model representing how to paginate the table's data."
         ),
         alias="paginationModel",
-        example=GridPaginationModel(page=3, page_size=30),
+        example=GridPaginationModel(page=3, page_size=30),  # type: ignore[call-arg]
     )
     sort_model: GridSortModel = Field(
         default_factory=list,
