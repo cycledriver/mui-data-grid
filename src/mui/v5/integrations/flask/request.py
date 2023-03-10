@@ -48,7 +48,7 @@ def get_grid_models_from_request(
         RequestGridModels: The located grid models.
     """
     return RequestGridModels(
-        filter_model=get_grid_filter_model_from_request(  # type: ignore[call-arg]
+        filter_model=get_grid_filter_model_from_request(
             key=filter_model_key, model_format=filter_model_format
         ),
         sort_model=get_grid_sort_model_from_request(
