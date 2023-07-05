@@ -3,7 +3,6 @@ from typing import Dict
 from hypothesis import given
 from hypothesis import strategies as st
 from hypothesis.strategies import builds
-
 from mui.v5.grid import GridPaginationModel
 
 CamelCaseGridPaginationModelData = st.fixed_dictionaries(
@@ -34,7 +33,7 @@ def test_parse_valid_grid_pagination_model_camel_case_dict(
 ) -> None:
     assert "page" in model_dict
     assert "pageSize" in model_dict
-    parsed = GridPaginationModel.parse_obj(model_dict)
+    parsed = GridPaginationModel.model_validate(model_dict)
     assert parsed.page >= 0
     assert parsed.page_size >= 1
 
@@ -45,6 +44,6 @@ def test_parse_valid_grid_pagination_model_snake_case_dict(
 ) -> None:
     assert "page" in model_dict
     assert "page_size" in model_dict
-    parsed = GridPaginationModel.parse_obj(model_dict)
+    parsed = GridPaginationModel.model_validate(model_dict)
     assert parsed.page >= 0
     assert parsed.page_size >= 1

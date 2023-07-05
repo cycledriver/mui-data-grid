@@ -5,12 +5,12 @@ from flask import Flask
 from hypothesis import given
 from hypothesis import strategies as st
 from hypothesis.strategies import SearchStrategy
-
 from mui.v5.grid.filter.model import GridFilterModel
 from mui.v5.grid.pagination.model import GridPaginationModel
 from mui.v5.grid.request import RequestGridModels
 from mui.v5.grid.sort.item import GridSortItem
 from mui.v5.integrations.flask.request import get_grid_models_from_request
+
 from tests.mui.v5.grid.filter.test_model import (
     CamelCaseGridFilterModelData,
     SnakeCaseGridFilterModelData,
@@ -86,8 +86,8 @@ def test_parse_flat_camel_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
@@ -110,8 +110,8 @@ def test_parse_nested_camel_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
@@ -134,8 +134,8 @@ def test_parse_flat_snake_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
@@ -158,8 +158,8 @@ def test_parse_nested_snake_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
