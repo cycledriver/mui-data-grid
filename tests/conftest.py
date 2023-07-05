@@ -2,12 +2,12 @@ from datetime import datetime, timedelta
 from math import floor
 from typing import Generator, Union
 
+from mui.v5.integrations.sqlalchemy import Resolver
 from pytest import fixture
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Query, Session
 
-from mui.v5.integrations.sqlalchemy import Resolver
 from tests.fixtures import Base, Category, ChildModel, ParentModel, category_from_id
 
 GENERATED_PARENT_MODEL_COUNT = 400

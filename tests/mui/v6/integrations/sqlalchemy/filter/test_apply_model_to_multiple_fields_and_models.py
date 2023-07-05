@@ -475,7 +475,7 @@ def test_apply_is_empty_apply_filter_to_query_from_model_multiple_fields(
                 {
                     "field": "grouping_id",
                     "value": None,
-                    "operatorValue": "isEmpty",
+                    "operator": "isEmpty",
                 },
                 {
                     "field": "category",
