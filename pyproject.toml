@@ -56,13 +56,13 @@ sort_order = "natural_plus"
 [tool.black]
 include = '\.pyi?$'
 line-length = 88
-target-version = ['py37']
+target-version = ['py38']
 
 [tool.mypy]
 exclude = ['^compat\.py$']
 follow_imports = "normal"
 plugins = ["pydantic.mypy", "sqlalchemy.ext.mypy.plugin"]
-python_version = "3.7"
+python_version = "3.8"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
@@ -107,5 +107,5 @@ verbose = 1
 exclude = ["**/__pycache__", "**/.git"]
 include = ["src"]
 pythonPlatform = "All"
-pythonVersion = "3.7"
+pythonVersion = "3.8"
 typeCheckingMode = "strict"
