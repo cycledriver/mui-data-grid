@@ -3,7 +3,6 @@ from urllib.parse import quote
 from flask import Flask
 from hypothesis import given
 from hypothesis import strategies as st
-
 from mui.v5.grid.pagination.model import GridPaginationModel
 from mui.v5.integrations.flask.pagination.model import (
     get_grid_pagination_model_from_request,
@@ -18,7 +17,7 @@ def test_parse_grid_pagination_model_from_flask_request_no_key(
 ) -> None:
     model = None
     with app.app_context():
-        query_str = quote(instance.json())
+        query_str = quote(instance.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
@@ -36,7 +35,7 @@ def test_parse_grid_pagination_model_from_flask_request_with_key(
 ) -> None:
     key = "pagination_model"
     with app.app_context():
-        query_str = quote(instance.json())
+        query_str = quote(instance.model_dump_json())
         with app.test_request_context(
             path=(f"/?{key}={query_str}"),
         ):

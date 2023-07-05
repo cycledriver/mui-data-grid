@@ -17,15 +17,17 @@ class GridPaginationModel(GridBaseModel):
         default=0,
         title="Starting Page",
         description="The starting page number (beginning with 0).",
-        gte=0,
-        example=0,
+        gt=-1,
+        json_schema_extra={
+            "example": 0,
+        },
     )
     page_size: PositiveInt = Field(
         default=15,
         title="Page Size",
         description="The size of each results page",
         alias="pageSize",
-        example=15,
+        json_schema_extra={"example": 15},
     )
 
     @property

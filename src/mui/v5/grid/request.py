@@ -1,7 +1,7 @@
 """The request module contains the model used to store parsed models."""
 from typing import ClassVar
 
-from pydantic import field_validator, Field
+from pydantic import Field, field_validator
 
 from mui.v5.grid.base import GridBaseModel, OptionalKeys
 from mui.v5.grid.filter import GridFilterItem, GridFilterModel
@@ -29,23 +29,25 @@ class RequestGridModels(GridBaseModel):
     """
 
     filter_model: GridFilterModel = Field(
-        default_factor=GridFilterModel,
+        default_factory=GridFilterModel,
         title="Filter Model",
         description="The filter model representing how to filter the table's data.",
         alias="filterModel",
-        example=GridFilterModel(
-            items=[
-                GridFilterItem(
-                    column_field="fieldName",
-                    id=123,
-                    operator_value="!=",
-                    value="Field Value",
-                )
-            ],
-            link_operator=GridLinkOperator.And,
-            quick_filter_logic_operator=None,
-            quick_filter_values=None,
-        ),
+        json_schema_extra={
+            "example": GridFilterModel(
+                items=[
+                    GridFilterItem(
+                        column_field="fieldName",
+                        id=123,
+                        operator_value="!=",
+                        value="Field Value",
+                    )
+                ],
+                link_operator=GridLinkOperator.And,
+                quick_filter_logic_operator=None,
+                quick_filter_values=None,
+            )
+        },
     )
     pagination_model: GridPaginationModel = Field(
         default_factory=GridPaginationModel,
@@ -54,14 +56,16 @@ class RequestGridModels(GridBaseModel):
             "The pagination model representing how to paginate the table's data."
         ),
         alias="paginationModel",
-        example=GridPaginationModel(page=3, page_size=30),
+        json_schema_extra={"example": GridPaginationModel(page=3, page_size=30)},
     )
     sort_model: GridSortModel = Field(
         default_factory=list,
         title="Sort Model",
         description="The sort model representing how to sort the table's data.",
         alias="sortModel",
-        example=[GridSortItem(field="fieldName", sort=GridSortDirection.DESC)],
+        json_schema_extra={
+            "example": [GridSortItem(field="fieldName", sort=GridSortDirection.DESC)]
+        },
     )
 
     @field_validator("filter_model", mode="before")

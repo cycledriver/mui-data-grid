@@ -8,10 +8,9 @@ from typing import Dict
 import sqlalchemy as sa
 from flask import Flask, jsonify
 from flask.wrappers import Response
-from sqlalchemy.orm import DeclarativeMeta, Mapped, registry, sessionmaker
-
 from mui.v5.integrations.flask import get_grid_models_from_request
 from mui.v5.integrations.sqlalchemy import apply_request_grid_models_to_query
+from sqlalchemy.orm import DeclarativeMeta, Mapped, registry, sessionmaker
 
 app = Flask(__name__)
 engine = sa.create_engine(url="sqlite:///:memory:")
@@ -133,9 +132,9 @@ def print_sorted_details() -> Response:
     return jsonify(
         {
             # sort_model is a list[GridSortItem]
-            SORT_MODEL_KEY: [model.dict() for model in models.sort_model],
+            SORT_MODEL_KEY: [model.model_dump() for model in models.sort_model],
             # filter_model is GridFilterModel
-            FILTER_MODEL_KEY: models.filter_model.dict(),
+            FILTER_MODEL_KEY: models.filter_model.model_dump(),
             # pagination_model is a GridPaginationModel
             # providing a consistent interface to pagination parameters
             PAGINATION_MODEL_KEY: models.pagination_model,
