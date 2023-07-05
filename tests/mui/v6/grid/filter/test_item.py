@@ -17,10 +17,10 @@ valid_operators = [
 GridFilterItemData = st.fixed_dictionaries(  # type: ignore[misc]
     mapping={
         "field": st.text(),
+        "operator": st.text(),
     },
     optional={
         "id": st.one_of(st.text(), st.integers(), st.none()),
-        "operator": st.text(),
         "value": st.one_of(st.text(), st.none(), st.booleans(), st.floats()),
     },
 )
