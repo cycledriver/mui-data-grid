@@ -9,7 +9,7 @@ name = "mui-data-grid"
 packages = [{ include = "mui", from = "src" }]
 readme = "README.md"
 repository = "https://github.com/kkirsche/mui-data-grid"
-version = "0.9.0"
+version = "0.10.0"
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4"
