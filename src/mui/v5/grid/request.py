@@ -70,19 +70,19 @@ class RequestGridModels(GridBaseModel):
 
     @field_validator("filter_model", mode="before")
     @classmethod
-    def ensure_filter_model_isnt_none(cls, v: object) -> object:  # noqa: B902
+    def ensure_filter_model_isnt_none(cls, v: object) -> object:
         """Ensures that the key used the correct default when dynamically set."""
         return GridFilterModel() if v is None else v
 
     @field_validator("pagination_model", mode="before")
     @classmethod
-    def ensure_pagination_model_isnt_none(cls, v: object) -> object:  # noqa: B902
+    def ensure_pagination_model_isnt_none(cls, v: object) -> object:
         """Ensures that the key used the correct default when dynamically set."""
         return GridPaginationModel() if v is None else v
 
     @field_validator("sort_model", mode="before")
     @classmethod
-    def ensure_sort_model_isnt_none(cls, v: object) -> object:  # noqa: B902
+    def ensure_sort_model_isnt_none(cls, v: object) -> object:
         """Ensures that the key used the correct default when dynamically set."""
         return [] if v is None else v
 

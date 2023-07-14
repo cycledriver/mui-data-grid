@@ -20,7 +20,7 @@ class GridBaseModel(BaseModel):
 
     @model_validator(mode="before")
     @classmethod
-    def ensure_optional_keys_exist(cls, haystack: object) -> object:  # noqa: B902
+    def ensure_optional_keys_exist(cls, haystack: object) -> object:
         """A validator that runs before validating the attribute's values.
 
         This validator ensures that at least one key per tuple exists if the received
