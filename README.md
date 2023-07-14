@@ -8,7 +8,7 @@ This is an unofficial toolbox to make integrating a Python web application with 
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.8.1+
 
 ## Features
 
