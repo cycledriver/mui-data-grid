@@ -35,6 +35,6 @@ def get_grid_filter_model_from_request(
     if model_format == "json":
         # https://pydantic-docs.helpmanual.io/usage/models/#helper-functions
         return request.args.get(
-            key=key, default=GridFilterModel(), type=GridFilterModel.parse_raw
+            key=key, default=GridFilterModel(), type=GridFilterModel.model_validate_json
         )
     raise ValueError(f"Unsupported model format: {model_format}")

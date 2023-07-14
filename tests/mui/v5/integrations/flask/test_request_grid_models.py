@@ -86,8 +86,8 @@ def test_parse_flat_camel_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
@@ -110,8 +110,8 @@ def test_parse_nested_camel_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
@@ -134,8 +134,8 @@ def test_parse_flat_snake_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):
@@ -158,8 +158,8 @@ def test_parse_nested_snake_case_request_grid_models_from_flask_request(
     models_dict: Dict[str, object]
 ) -> None:
     with app.app_context():
-        model = RequestGridModels.parse_obj(models_dict)
-        query_str = quote(model.json())
+        model = RequestGridModels.model_validate(models_dict)
+        query_str = quote(model.model_dump_json())
         with app.test_request_context(
             path=(f"/?{query_str}"),
         ):

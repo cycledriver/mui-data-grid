@@ -49,7 +49,7 @@ def test_apply_eq_apply_filter_to_query_from_model_multiple_fields_and_model(
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
     TARGET_CATEGORY = Category.CATEGORY_0
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -136,7 +136,7 @@ def test_apply_is_datetime_apply_filter_to_query_from_model_multi_field_and_mode
     # back from the database
     ROW_THIRD_DAY = THIRD_DAY.replace(tzinfo=None)
     TARGET_CATEGORY = category_from_id(id=expected_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -214,7 +214,7 @@ def test_apply_ne_apply_filter_to_query_from_model_multiple_fields(
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
     TARGET_CATEGORY = category_from_id(id=target_parent_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -302,7 +302,7 @@ def test_apply_gt_lt_apply_filter_to_query_from_model_multiple_fields(
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
     TARGET_CATEGORY = category_from_id(id=target_parent_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -380,7 +380,7 @@ def test_apply_ge_le_apply_filter_to_query_from_model_multiple_fields(
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
     TARGET_CATEGORY = category_from_id(id=target_parent_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -464,7 +464,7 @@ def test_apply_is_empty_apply_filter_to_query_from_model_multiple_fields(
     joined_query: "Query[ChildModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -544,7 +544,7 @@ def test_apply_is_not_empty_apply_filter_to_query_from_model_multiple_fields(
     joined_query: "Query[ChildModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -624,7 +624,7 @@ def test_apply_is_any_of_apply_filter_to_query_from_model_multiple_fields(
         {category_from_id(id=TARGET_ID) for TARGET_ID in TARGET_IDS}
     )
 
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -711,7 +711,7 @@ def test_apply_contains_apply_filter_to_query_from_model_multiple_fields(
     TARGET_NAME = ParentModel.__name__
     TARGET_GROUP = 0
     TARGET_CATEGORY = Category.CATEGORY_0.value[:3]
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -798,7 +798,7 @@ def test_apply_starts_with_apply_filter_to_query_from_model_multiple_fields(
     TARGET_NAME = ParentModel.__name__
     TARGET_GROUP = 0
     TARGET_CATEGORY = Category.CATEGORY_0.value[:3]
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -879,7 +879,7 @@ def test_apply_ends_with_apply_filter_to_query_from_model_multiple_fields(
 ) -> None:
     TARGET_NAME_AND_GROUP = "0"
     TARGET_CATEGORY = Category.CATEGORY_0.value[3:]
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {

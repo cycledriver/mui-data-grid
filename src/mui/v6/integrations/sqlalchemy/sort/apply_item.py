@@ -47,7 +47,7 @@ def _get_column(item: GridSortItem, resolver: Resolver) -> Any:
     They accept more than just `Column[_C]` types though, such as deferred and
     column_property.
 
-    https://stackoverflow.com/questions/19569448/sqlalchemy-order-by-a-relationship-field-in-a-relationship # noqa
+    https://stackoverflow.com/questions/19569448/sqlalchemy-order-by-a-relationship-field-in-a-relationship # noqa: E501
 
     Args:
         item (GridSortItem): The grid sort item whose field will be retrieved using

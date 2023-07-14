@@ -41,7 +41,7 @@ def test_parse_valid_grid_filter_item_camel_case_dict(
     filter_item_dict: Dict[str, object]
 ) -> None:
     assert "columnField" in filter_item_dict
-    parsed = GridFilterItem.parse_obj(filter_item_dict)
+    parsed = GridFilterItem.model_validate(filter_item_dict)
     assert isinstance(parsed.column_field, str)
     assert isinstance(parsed.id, (str, int)) or parsed.id is None
     assert isinstance(parsed.operator_value, str) or parsed.operator_value is None
@@ -53,7 +53,7 @@ def test_parse_valid_grid_filter_item_snake_case_dict(
     filter_item_dict: Dict[str, object]
 ) -> None:
     assert "column_field" in filter_item_dict
-    parsed = GridFilterItem.parse_obj(filter_item_dict)
+    parsed = GridFilterItem.model_validate(filter_item_dict)
     assert isinstance(parsed.column_field, str)
     assert isinstance(parsed.id, (str, int)) or parsed.id is None
     assert isinstance(parsed.operator_value, str) or parsed.operator_value is None

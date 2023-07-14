@@ -48,7 +48,7 @@ def get_grid_pagination_model_from_request(
         else request.args
     )
     if isinstance(obj, str):
-        return GridPaginationModel.parse_raw(obj)
+        return GridPaginationModel.model_validate_json(obj)
     if isinstance(obj, GridPaginationModel):
         return obj
-    return GridPaginationModel.parse_obj(obj)
+    return GridPaginationModel.model_validate(obj)

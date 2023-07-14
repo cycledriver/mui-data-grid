@@ -21,4 +21,4 @@ GridSortItemData = st.fixed_dictionaries(
 
 @given(GridSortItemData)
 def test_valid_grid_sort_item_parse(sort_item_dict: Dict[str, object]) -> None:
-    GridSortItem.parse_obj(sort_item_dict)
+    GridSortItem.model_validate(sort_item_dict)

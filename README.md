@@ -8,7 +8,7 @@ This is an unofficial toolbox to make integrating a Python web application with 
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.8.1+
 
 ## Features
 
@@ -54,6 +54,8 @@ from flask import Flask, jsonify
 from flask.wrappers import Response
 
 from mui.v5.integrations.flask import get_grid_models_from_request
+# for v6 support, replace this import with:
+# from mui.v6.integrations.flask import get_grid_models_from_request
 
 app = Flask(__name__)
 
@@ -74,9 +76,9 @@ def print_sorted_details() -> Response:
     return jsonify(
         {
             # sort_model is a list[GridSortItem]
-            SORT_MODEL_KEY: [model.dict() for model in models.sort_model],
+            SORT_MODEL_KEY: [model.model_dump() for model in models.sort_model],
             # filter_model is GridFilterModel
-            FILTER_MODEL_KEY: models.filter_model.dict(),
+            FILTER_MODEL_KEY: models.filter_model.model_dump(),
             # pagination_model is a GridPaginationModel
             # providing a consistent interface to pagination parameters
             PAGINATION_MODEL_KEY: models.pagination_model,
@@ -109,7 +111,7 @@ if __name__ == "__main__":
         # rather than have .pages() fire off an additional db query.
         total = dg_query.total()
         def item_factory(item: ExampleModel) -> Dict[str, int]:
-            return item.dict()
+            return item.model_dump()
         return jsonify(
             {
                 "items": dg_query.items(factory=item_factory),
