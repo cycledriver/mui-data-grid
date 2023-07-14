@@ -2,7 +2,6 @@ from typing import Dict
 
 from hypothesis import given
 from hypothesis import strategies as st
-
 from mui.v6.grid.filter.item import GridFilterItem
 from mui.v6.grid.filter.model import GridFilterModel
 from mui.v6.grid.logic.operator import GridLogicOperator
@@ -49,7 +48,7 @@ SnakeCaseGridFilterModelData = st.fixed_dictionaries(  # type: ignore[misc]
 def test_valid_grid_filter_model_camel_case_parse(
     filter_item_dict: Dict[str, object]
 ) -> None:
-    parsed = GridFilterModel.parse_obj(filter_item_dict)
+    parsed = GridFilterModel.model_validate(filter_item_dict)
     assert isinstance(parsed.items, list)
     assert all(isinstance(item, GridFilterItem) for item in parsed.items)
     assert (
@@ -70,7 +69,7 @@ def test_valid_grid_filter_model_camel_case_parse(
 def test_valid_grid_filter_model_snake_case_parse(
     filter_item_dict: Dict[str, object]
 ) -> None:
-    parsed = GridFilterModel.parse_obj(filter_item_dict)
+    parsed = GridFilterModel.model_validate(filter_item_dict)
     assert isinstance(parsed.items, list)
     assert all(isinstance(item, GridFilterItem) for item in parsed.items)
     assert (

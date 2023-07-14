@@ -3,15 +3,15 @@ from itertools import product
 from operator import ge, gt, le, lt
 from typing import Any, Callable, Optional
 
+from mui.v6.grid import GridFilterModel, GridLogicOperator
+from mui.v6.integrations.sqlalchemy.filter import apply_filter_to_query_from_model
+from mui.v6.integrations.sqlalchemy.resolver import Resolver
 from pytest import mark
 from sqlalchemy import and_, or_
 from sqlalchemy.dialects import sqlite
 from sqlalchemy.orm import Query, Session
 from typing_extensions import Literal
 
-from mui.v6.grid import GridFilterModel, GridLogicOperator
-from mui.v6.integrations.sqlalchemy.filter import apply_filter_to_query_from_model
-from mui.v6.integrations.sqlalchemy.resolver import Resolver
 from tests.conftest import FIRST_DATE_DATETIME, calculate_grouping_id
 from tests.fixtures.sqlalchemy import ParentModel
 
@@ -42,7 +42,7 @@ def test_apply_eq_apply_filter_to_query_from_model_multiple_fields(
     target_parent_id: int,
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -112,7 +112,7 @@ def test_apply_is_datetime_apply_filter_to_query_from_model_single_field(
     # sqlite doesn't support the concept of timezones, so we get a naive datetime
     # back from the database
     ROW_THIRD_DAY = THIRD_DAY.replace(tzinfo=None)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -174,7 +174,7 @@ def test_apply_ne_apply_filter_to_query_from_model_multiple_fields(
     target_parent_id: int,
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -242,7 +242,7 @@ def test_apply_gt_lt_apply_filter_to_query_from_model_multiple_fields(
     target_parent_id: int,
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -311,7 +311,7 @@ def test_apply_ge_le_apply_filter_to_query_from_model_multiple_fields(
     target_parent_id: int,
 ) -> None:
     TARGET_GROUP = calculate_grouping_id(model_id=target_parent_id)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -378,7 +378,7 @@ def test_apply_is_empty_apply_filter_to_query_from_model_multiple_fields(
     query: "Query[ParentModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -444,7 +444,7 @@ def test_apply_is_not_empty_apply_filter_to_query_from_model_multiple_fields(
     query: "Query[ParentModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -511,7 +511,7 @@ def test_apply_is_any_of_apply_filter_to_query_from_model_multiple_fields(
         {calculate_grouping_id(model_id=TARGET_ID) for TARGET_ID in TARGET_IDS}
     )
 
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -577,7 +577,7 @@ def test_apply_contains_apply_filter_to_query_from_model_multiple_fields(
     query: "Query[ParentModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -642,7 +642,7 @@ def test_apply_starts_with_apply_filter_to_query_from_model_multiple_fields(
     query: "Query[ParentModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -707,7 +707,7 @@ def test_apply_ends_with_apply_filter_to_query_from_model_multiple_fields(
     resolver: Resolver,
 ) -> None:
     VALUE = "0"
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {

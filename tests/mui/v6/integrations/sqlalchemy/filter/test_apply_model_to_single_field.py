@@ -1,12 +1,12 @@
 from datetime import timedelta
 
+from mui.v6.grid import GridFilterModel
+from mui.v6.integrations.sqlalchemy.filter import apply_filter_to_query_from_model
+from mui.v6.integrations.sqlalchemy.resolver import Resolver
 from pytest import mark
 from sqlalchemy.dialects import sqlite
 from sqlalchemy.orm import Query, Session
 
-from mui.v6.grid import GridFilterModel
-from mui.v6.integrations.sqlalchemy.filter import apply_filter_to_query_from_model
-from mui.v6.integrations.sqlalchemy.resolver import Resolver
 from tests.conftest import FIRST_DATE_DATETIME
 from tests.fixtures.sqlalchemy import ParentModel
 
@@ -18,7 +18,7 @@ def test_apply_eq_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
     target_parent_id: int,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -50,7 +50,7 @@ def test_apply_is_datetime_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
 ) -> None:
     THIRD_DAY = FIRST_DATE_DATETIME + timedelta(days=3)
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -86,7 +86,7 @@ def test_apply_ne_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
     target_parent_id: int,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -125,7 +125,7 @@ def test_apply_gt_lt_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
     target_parent_id: int,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -171,7 +171,7 @@ def test_apply_ge_le_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
     target_parent_id: int,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -220,7 +220,7 @@ def test_apply_is_empty_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
     parent_model_count: int,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -257,7 +257,7 @@ def test_apply_is_not_empty_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
     parent_model_count: int,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -292,7 +292,7 @@ def test_apply_is_any_of_apply_filter_to_query_from_model_single_field(
     resolver: Resolver,
 ) -> None:
     TARGET_IDS = [1, 2, 3]
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -328,7 +328,7 @@ def test_apply_contains_apply_filter_to_query_from_model_single_field(
     query: "Query[ParentModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -368,7 +368,7 @@ def test_apply_starts_with_apply_filter_to_query_from_model_single_field(
     query: "Query[ParentModel]",
     resolver: Resolver,
 ) -> None:
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
@@ -408,7 +408,7 @@ def test_apply_ends_with_apply_filter_to_query_from_model_single_field(
     parent_model_count: int,
 ) -> None:
     VALUE = "0"
-    model = GridFilterModel.parse_obj(
+    model = GridFilterModel.model_validate(
         {
             "items": [
                 {
