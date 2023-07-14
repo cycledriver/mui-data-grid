@@ -1,12 +1,12 @@
 from datetime import timedelta
 
-from mui.v6.grid import GridFilterModel
-from mui.v6.integrations.sqlalchemy.filter import apply_filter_to_query_from_model
-from mui.v6.integrations.sqlalchemy.resolver import Resolver
 from pytest import mark
 from sqlalchemy.dialects import sqlite
 from sqlalchemy.orm import Query, Session
 
+from mui.v6.grid import GridFilterModel
+from mui.v6.integrations.sqlalchemy.filter import apply_filter_to_query_from_model
+from mui.v6.integrations.sqlalchemy.resolver import Resolver
 from tests.conftest import FIRST_DATE_DATETIME
 from tests.fixtures.sqlalchemy import ParentModel
 

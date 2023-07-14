@@ -3,6 +3,7 @@ from typing import Dict
 from hypothesis import given
 from hypothesis import strategies as st
 from hypothesis.strategies import builds
+
 from mui.v6.grid import GridPaginationModel
 
 CamelCaseGridPaginationModelData = st.fixed_dictionaries(

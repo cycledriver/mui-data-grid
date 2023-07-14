@@ -2,6 +2,7 @@ from typing import Dict
 
 from hypothesis import given
 from hypothesis import strategies as st
+
 from mui.v6.grid.filter.item import GridFilterItem
 from mui.v6.grid.filter.model import GridFilterModel
 from mui.v6.grid.logic.operator import GridLogicOperator

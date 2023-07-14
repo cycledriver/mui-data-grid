@@ -1,8 +1,9 @@
 from typing import Optional
 
+from pytest import mark
+
 from mui.v6.grid import GridSortDirection, GridSortItem
 from mui.v6.integrations.sqlalchemy.sort.apply_item import get_operator
-from pytest import mark
 
 
 @mark.parametrize(

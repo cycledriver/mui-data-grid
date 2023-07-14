@@ -4,6 +4,7 @@ from urllib.parse import quote
 from flask import Flask
 from hypothesis import given
 from hypothesis import strategies as st
+
 from mui.v5.grid.sort import GridSortModel
 from mui.v5.grid.sort.item import GridSortItem
 from mui.v5.integrations.flask.sort.model import get_grid_sort_model_from_request

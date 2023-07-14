@@ -2,7 +2,7 @@
 from collections.abc import MutableMapping
 from typing import AbstractSet, ClassVar, Sequence
 
-from pydantic import model_validator, ConfigDict, BaseModel
+from pydantic import BaseModel, ConfigDict, model_validator
 from typing_extensions import TypeAlias
 
 OptionalKeys: TypeAlias = AbstractSet[Sequence[str]]
@@ -42,4 +42,5 @@ class GridBaseModel(BaseModel):
                     key = keys[0]
                     haystack[key] = None
         return haystack
+
     model_config = ConfigDict(populate_by_name=True, extra="ignore")

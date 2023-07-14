@@ -5,12 +5,12 @@ from flask import Flask
 from hypothesis import given
 from hypothesis import strategies as st
 from hypothesis.strategies import SearchStrategy
+
 from mui.v5.grid.filter.model import GridFilterModel
 from mui.v5.grid.pagination.model import GridPaginationModel
 from mui.v5.grid.request import RequestGridModels
 from mui.v5.grid.sort.item import GridSortItem
 from mui.v5.integrations.flask.request import get_grid_models_from_request
-
 from tests.mui.v5.grid.filter.test_model import (
     CamelCaseGridFilterModelData,
     SnakeCaseGridFilterModelData,

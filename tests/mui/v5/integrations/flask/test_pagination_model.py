@@ -3,6 +3,7 @@ from urllib.parse import quote
 from flask import Flask
 from hypothesis import given
 from hypothesis import strategies as st
+
 from mui.v5.grid.pagination.model import GridPaginationModel
 from mui.v5.integrations.flask.pagination.model import (
     get_grid_pagination_model_from_request,

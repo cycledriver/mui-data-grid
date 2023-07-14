@@ -2,6 +2,7 @@ from typing import Dict
 
 from hypothesis import given
 from hypothesis import strategies as st
+
 from mui.v6.grid.sort.direction import GridSortDirection
 from mui.v6.grid.sort.item import GridSortItem
 
