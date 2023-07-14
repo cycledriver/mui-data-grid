@@ -2,7 +2,7 @@
 from collections.abc import MutableMapping
 from typing import AbstractSet, ClassVar, Sequence
 
-from pydantic import BaseModel, Extra, root_validator
+from pydantic import BaseModel, ConfigDict, model_validator
 from typing_extensions import TypeAlias
 
 OptionalKeys: TypeAlias = AbstractSet[Sequence[str]]
@@ -18,7 +18,8 @@ class GridBaseModel(BaseModel):
 
     _optional_keys: ClassVar[OptionalKeys] = set()
 
-    @root_validator(pre=True)
+    @model_validator(mode="before")
+    @classmethod
     def ensure_optional_keys_exist(cls, haystack: object) -> object:  # noqa: B902
         """A validator that runs before validating the attribute's values.
 
@@ -42,19 +43,4 @@ class GridBaseModel(BaseModel):
                     haystack[key] = None
         return haystack
 
-    class Config:
-        """
-
-        Documentation:
-            https://pydantic-docs.helpmanual.io/usage/model_config/#options
-
-        Attributes:
-            allow_population_by_field_name: True to enable grid sort models to read
-                incoming objects that use either the JavaScript / TypeScript default
-                key names or the Python-style snake case names.
-            extra: Extra.ignore. Ignore additional keys in the data structures being
-                parsed. This is set to ignore to enable easier use by third parties.
-        """
-
-        allow_population_by_field_name = True
-        extra = Extra.ignore
+    model_config = ConfigDict(populate_by_name=True, extra="ignore")

@@ -1,7 +1,7 @@
 """The request module contains the model used to store parsed models."""
 from typing import ClassVar
 
-from pydantic import Field, validator
+from pydantic import Field, field_validator
 
 from mui.v6.grid.base import GridBaseModel, OptionalKeys
 from mui.v6.grid.filter import GridFilterItem, GridFilterModel
@@ -64,17 +64,20 @@ class RequestGridModels(GridBaseModel):
         example=[GridSortItem(field="fieldName", sort=GridSortDirection.DESC)],
     )
 
-    @validator("filter_model", pre=True)
+    @field_validator("filter_model", mode="before")
+    @classmethod
     def ensure_filter_model_isnt_none(cls, v: object) -> object:  # noqa: B902
         """Ensures that the key used the correct default when dynamically set."""
         return GridFilterModel() if v is None else v
 
-    @validator("pagination_model", pre=True)
+    @field_validator("pagination_model", mode="before")
+    @classmethod
     def ensure_pagination_model_isnt_none(cls, v: object) -> object:  # noqa: B902
         """Ensures that the key used the correct default when dynamically set."""
         return GridPaginationModel() if v is None else v
 
-    @validator("sort_model", pre=True)
+    @field_validator("sort_model", mode="before")
+    @classmethod
     def ensure_sort_model_isnt_none(cls, v: object) -> object:  # noqa: B902
         """Ensures that the key used the correct default when dynamically set."""
         return [] if v is None else v

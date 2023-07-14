@@ -29,7 +29,7 @@ GridFilterItemData = st.fixed_dictionaries(  # type: ignore[misc]
 @given(filter_item_dict=GridFilterItemData)
 def test_parse_valid_grid_filter_item_dict(filter_item_dict: Dict[str, object]) -> None:
     assert "field" in filter_item_dict
-    parsed = GridFilterItem.parse_obj(filter_item_dict)
+    parsed = GridFilterItem.model_validate(filter_item_dict)
     assert isinstance(parsed.field, str)
     assert isinstance(parsed.id, (str, int)) or parsed.id is None
     assert isinstance(parsed.operator, str) or parsed.operator is None

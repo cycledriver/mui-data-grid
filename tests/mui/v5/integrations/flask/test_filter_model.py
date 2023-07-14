@@ -18,7 +18,7 @@ app = Flask(__name__)
 def test_parse_grid_filter_model_from_flask_request(instance: GridFilterModel) -> None:
     key = "filter_model"
     with app.app_context():
-        query_str = quote(instance.json())
+        query_str = quote(instance.model_dump_json())
         with app.test_request_context(
             path=(f"/?{key}={query_str}"),
         ):
