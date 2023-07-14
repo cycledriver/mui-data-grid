@@ -54,6 +54,8 @@ from flask import Flask, jsonify
 from flask.wrappers import Response
 
 from mui.v5.integrations.flask import get_grid_models_from_request
+# for v6 support, replace this import with:
+# from mui.v6.integrations.flask import get_grid_models_from_request
 
 app = Flask(__name__)
 
