@@ -43,9 +43,6 @@ flask = ">=2.2.5,<3"
 sqlalchemy = ">=1.4,<2"
 sqlalchemy2-stubs = ">=0.0.2a34"
 
-
-[tool.poetry.group.dev.dependencies]
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
