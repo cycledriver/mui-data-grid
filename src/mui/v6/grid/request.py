@@ -29,23 +29,25 @@ class RequestGridModels(GridBaseModel):
     """
 
     filter_model: GridFilterModel = Field(
-        default_factor=GridFilterModel,
+        default_factory=GridFilterModel,
         title="Filter Model",
         description="The filter model representing how to filter the table's data.",
         alias="filterModel",
-        example=GridFilterModel(
-            items=[
-                GridFilterItem(
-                    field="fieldName",
-                    id=123,
-                    operator="!=",
-                    value="Field Value",
-                )
-            ],
-            logic_operator=GridLogicOperator.And,
-            quick_filter_logic_operator=None,
-            quick_filter_values=None,
-        ),
+        examples=[
+            GridFilterModel(
+                items=[
+                    GridFilterItem(
+                        field="fieldName",
+                        id=123,
+                        operator="!=",
+                        value="Field Value",
+                    )
+                ],
+                logic_operator=GridLogicOperator.And,
+                quick_filter_logic_operator=None,
+                quick_filter_values=None,
+            )
+        ],
     )
     pagination_model: GridPaginationModel = Field(
         default_factory=GridPaginationModel,
@@ -54,14 +56,14 @@ class RequestGridModels(GridBaseModel):
             "The pagination model representing how to paginate the table's data."
         ),
         alias="paginationModel",
-        example=GridPaginationModel(page=3, page_size=30),
+        examples=[GridPaginationModel(page=3, page_size=30)],
     )
     sort_model: GridSortModel = Field(
         default_factory=list,
         title="Sort Model",
         description="The sort model representing how to sort the table's data.",
         alias="sortModel",
-        example=[GridSortItem(field="fieldName", sort=GridSortDirection.DESC)],
+        examples=[[GridSortItem(field="fieldName", sort=GridSortDirection.DESC)]],
     )
 
     @field_validator("filter_model", mode="before")
