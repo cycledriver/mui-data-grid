@@ -24,5 +24,5 @@ def apply_is_any_of_operator(column: Any, value: Any) -> Any:
     if value is None or (
         isinstance(value, Collection) and len(cast(Collection[object], value)) == 0
     ):
-        return column.in_(tuple())
+        return column.in_(())  # empty tuple
     return column.in_(value)
