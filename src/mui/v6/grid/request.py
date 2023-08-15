@@ -29,7 +29,7 @@ class RequestGridModels(GridBaseModel):
     """
 
     filter_model: GridFilterModel = Field(
-        default_factor=GridFilterModel,
+        default_factory=GridFilterModel,
         title="Filter Model",
         description="The filter model representing how to filter the table's data.",
         alias="filterModel",
