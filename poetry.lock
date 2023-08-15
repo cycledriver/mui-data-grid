@@ -746,20 +746,6 @@ tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
 [[package]]
-name = "pyupgrade"
-version = "3.10.1"
-description = "A tool to automatically upgrade syntax for newer versions."
-optional = false
-python-versions = ">=3.8.1"
-files = [
-    {file = "pyupgrade-3.10.1-py2.py3-none-any.whl", hash = "sha256:f565b4d26daa46ed522e98746834e77e444269103f8bc04413d77dad95169a24"},
-    {file = "pyupgrade-3.10.1.tar.gz", hash = "sha256:1d8d138c2ccdd3c42b1419230ae036d5607dc69465a26feacc069642fc8d1b90"},
-]
-
-[package.dependencies]
-tokenize-rt = ">=5.2.0"
-
-[[package]]
 name = "ruff"
 version = "0.0.284"
 description = "An extremely fast Python linter, written in Rust."
@@ -859,17 +845,6 @@ files = [
 widechars = ["wcwidth"]
 
 [[package]]
-name = "tokenize-rt"
-version = "5.2.0"
-description = "A wrapper around the stdlib `tokenize` which roundtrips."
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "tokenize_rt-5.2.0-py2.py3-none-any.whl", hash = "sha256:b79d41a65cfec71285433511b50271b05da3584a1da144a0752e9c621a285289"},
-    {file = "tokenize_rt-5.2.0.tar.gz", hash = "sha256:9fe80f8a5c1edad2d3ede0f37481cc0cc1538a2f442c9c2f9e4feacd2792d054"},
-]
-
-[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -937,4 +912,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8.1,<4"
-content-hash = "9f17588c0a51f01c4621bbc5ee1bcfaed2292c9889d6ec15e778aac4143db038"
+content-hash = "82f40ff60b8a7c7fd7d47543496e7a8b523351b7725317b4191521af411a93bb"

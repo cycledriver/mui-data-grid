@@ -96,9 +96,6 @@ jobs:
       - name: Run pytest
         run: poetry run pytest -v
 
-      - name: Run pyupgrade
-        run: find src -name '*.py' -type f | xargs -n 1 -I {} poetry run pyupgrade --py38-plus {}
-
       - name: Check for clean working tree
         run: |
           git diff --exit-code --stat HEAD
