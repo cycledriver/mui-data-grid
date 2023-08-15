@@ -10,7 +10,7 @@ from mui.v5.grid.sort.item import GridSortItem
 from mui.v5.integrations.sqlalchemy.resolver import Resolver
 
 
-def _no_operation(column: Any) -> None:
+def _no_operation(column: Any) -> None:  # noqa: ARG001
     """Used when an unsorted operation is requested.
 
     Returns:
@@ -47,7 +47,7 @@ def _get_column(item: GridSortItem, resolver: Resolver) -> Any:
     They accept more than just `Column[_C]` types though, such as deferred and
     column_property.
 
-    https://stackoverflow.com/questions/19569448/sqlalchemy-order-by-a-relationship-field-in-a-relationship # noqa
+    https://stackoverflow.com/questions/19569448/sqlalchemy-order-by-a-relationship-field-in-a-relationship
 
     Args:
         item (GridSortItem): The grid sort item whose field will be retrieved using
@@ -58,7 +58,7 @@ def _get_column(item: GridSortItem, resolver: Resolver) -> Any:
     Returns:
         Any: The column, property, or other allowed attribute representing an orderable
             column.
-    """
+    """  # noqa: E501
     return resolver(item.field)
 
 

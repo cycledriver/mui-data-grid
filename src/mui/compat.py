@@ -32,7 +32,7 @@ class StrEnum(str, Enum):
 
     @staticmethod
     def _generate_next_value_(
-        name: str, start: int, count: int, last_values: List[Any]
+        name: str, start: int, count: int, last_values: List[Any]  # noqa: ARG004
     ) -> Any:
         """Return the lower-cased version of the member name."""
         return name.lower()
