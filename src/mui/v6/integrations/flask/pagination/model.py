@@ -51,4 +51,4 @@ def get_grid_pagination_model_from_request(
         return GridPaginationModel.model_validate_json(obj)
     if isinstance(obj, GridPaginationModel):
         return obj
-    return GridPaginationModel.model_validate(obj)
+    return GridPaginationModel.model_validate(dict(obj))
