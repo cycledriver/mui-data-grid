@@ -58,7 +58,7 @@ def _get_column(item: GridSortItem, resolver: Resolver) -> Any:
     Returns:
         Any: The column, property, or other allowed attribute representing an orderable
             column.
-    """  # noqa: E501
+    """
     return resolver(item.field)
 
 

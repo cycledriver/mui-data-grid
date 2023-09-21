@@ -16,7 +16,7 @@ def apply_startswith_operator(column: Any, value: Any) -> Any:
     Returns:
         Any: The column after applying the startsWith filter using the provided value.
     """
-    # https://docs.sqlalchemy.org/en/20/core/sqlelement.html#sqlalchemy.sql.expression.ColumnOperators.startswith # noqa
+    # https://docs.sqlalchemy.org/en/20/core/sqlelement.html#sqlalchemy.sql.expression.ColumnOperators.startswith # noqa: E501
     # Per SQLAlchemy 1.4.43:
     # only '=', '!=', 'is_()', 'is_not()', 'is_distinct_from()',
     # 'is_not_distinct_from()' operators can be used with None/True/False

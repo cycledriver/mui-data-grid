@@ -3,7 +3,7 @@
 The grid filter model is responsible for modelling, or representing using
 programming data structures, the state of the data grid.
 """
-from typing import Any, List, Optional, Union
+from typing import Any, ClassVar, List, Optional, Union
 
 from pydantic import Field
 from typing_extensions import TypeAlias, TypedDict
@@ -149,7 +149,7 @@ class GridFilterModel(GridBaseModel):
         alias="quickFilterValues",
     )
 
-    _optional_keys = {
+    _optional_keys: ClassVar["set[tuple[str, ...]]"] = {
         ("linkOperator", "link_operator"),
         ("quickFilterLogicOperator", "quick_filter_logic_operator"),
         ("quickFilterValues", "quick_filter_values"),
