@@ -3,7 +3,7 @@ filter items.
 
 Each filter item corresponds to a configured filter from the data grid's filter window.
 """
-from typing import Any, Optional, Union
+from typing import Any, ClassVar, Optional, Union
 
 from pydantic import Field
 from typing_extensions import TypeAlias, TypedDict
@@ -116,7 +116,7 @@ class GridFilterItem(GridBaseModel):
     )
     value: Value = Field(default=None, title="Value", description="The filtering value")
 
-    _optional_keys = {
+    _optional_keys: ClassVar["set[tuple[str, ...]]"] = {
         # be careful, this is a tuple because of the trailing comma
         ("id",),
         ("operatorValue", "operator_value"),

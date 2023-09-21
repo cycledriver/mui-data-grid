@@ -36,14 +36,14 @@ class ExampleModel(Base):
 
     __tablename__ = "example_models"
 
-    id: Mapped[int] = sa.Column(  # pyright: ignore
+    id: Mapped[int] = sa.Column(  # pyright: ignore[reportGeneralTypeIssues]
         sa.Integer(),
         primary_key=True,
         autoincrement=True,
         nullable=False,
         comment="The primary key identifier.",
     )
-    group_number: Mapped[int] = sa.Column(  # pyright: ignore
+    group_number: Mapped[int] = sa.Column(  # pyright: ignore[reportGeneralTypeIssues]
         sa.Integer(), nullable=False, comment="A grouping identifier"
     )
 
