@@ -17,13 +17,13 @@ class StrEnum(str, Enum):
 
     def __new__(cls, *values: Tuple[str, ...]) -> "StrEnum":
         "values must already be of type `str`"
-        if len(values) > 3:
+        if len(values) > 3:  # noqa: PLR2004
             raise TypeError(f"too many arguments for str(): {values!r}")
         if len(values) == 1 and not isinstance(values[0], str):
             raise TypeError(f"{values[0]!r} is not a string")
-        if len(values) >= 2 and not isinstance(values[1], str):
+        if len(values) >= 2 and not isinstance(values[1], str):  # noqa: PLR2004
             raise TypeError(f"encoding must be a string, not {values[1]!r}")
-        if len(values) == 3 and not isinstance(values[2], str):
+        if len(values) == 3 and not isinstance(values[2], str):  # noqa: PLR2004
             raise TypeError(f"errors must be a string, not {values[2]!r}")
         value = str(*values)
         member = str.__new__(cls, value)
