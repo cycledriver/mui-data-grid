@@ -107,7 +107,7 @@ if __name__ == "__main__":
             request_model=models,
             column_resolver=example_model_resolver,
         )
-        # we calculate total separately so that we can re-use the result
+        # we calculate total separately so that we can reuse the result
         # rather than have .pages() fire off an additional db query.
         total = dg_query.total()
         def item_factory(item: ExampleModel) -> Dict[str, int]:
