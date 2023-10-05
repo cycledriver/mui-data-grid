@@ -22,18 +22,19 @@ typing-extensions = ">=4.7.1,<5"
 
 [tool.poetry.group.github-actions.dependencies]
 black = "^23.9.1"
-codespell = "^2.2.5"
+codespell = "^2.2.6"
 example-isort-formatting-plugin = "^0.1.1"
 example-isort-sorting-plugin = "^0.1.0"
-hypothesis = "^6.87.0"
+hypothesis = "^6.87.1"
 interrogate = "^1.5.0"
 isort = "^5.12.0"
 mypy = "^1.5.1"
 pytest = "^7.4.2"
-ruff = "^0.0.291"
+ruff = "^0.0.292"
+setuptools = { python = ">=3.12,<4", version = "^68.2.2" }
 
 [tool.poetry.group.flask.dependencies]
-flask = "^2.3.3"
+flask = "^3.0.0"
 
 [tool.poetry.group.sqlalchemy.dependencies]
 sqlalchemy = ">=1.4,<2"
