@@ -33,8 +33,8 @@ class RequestGridModels(GridBaseModel):
         title="Filter Model",
         description="The filter model representing how to filter the table's data.",
         alias="filterModel",
-        json_schema_extra={
-            "example": GridFilterModel(
+        examples=[
+            GridFilterModel(
                 items=[
                     GridFilterItem(
                         column_field="fieldName",
@@ -47,7 +47,7 @@ class RequestGridModels(GridBaseModel):
                 quick_filter_logic_operator=None,
                 quick_filter_values=None,
             )
-        },
+        ],
     )
     pagination_model: GridPaginationModel = Field(
         default_factory=GridPaginationModel,
@@ -56,16 +56,14 @@ class RequestGridModels(GridBaseModel):
             "The pagination model representing how to paginate the table's data."
         ),
         alias="paginationModel",
-        json_schema_extra={"example": GridPaginationModel(page=3, page_size=30)},
+        examples=[GridPaginationModel(page=3, page_size=30)],
     )
     sort_model: GridSortModel = Field(
         default_factory=list,
         title="Sort Model",
         description="The sort model representing how to sort the table's data.",
         alias="sortModel",
-        json_schema_extra={
-            "example": [GridSortItem(field="fieldName", sort=GridSortDirection.DESC)]
-        },
+        examples=[[GridSortItem(field="fieldName", sort=GridSortDirection.DESC)]],
     )
 
     @field_validator("filter_model", mode="before")
