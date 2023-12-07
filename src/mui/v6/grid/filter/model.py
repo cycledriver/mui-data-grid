@@ -3,12 +3,12 @@
 The grid filter model is responsible for modelling, or representing using
 programming data structures, the state of the data grid.
 """
-from typing import Any, ClassVar, List, Optional, Set, Tuple, Union
+from typing import Any, ClassVar, List, Optional, Union
 
-from pydantic import Field
+from pydantic import AliasChoices, Field
 from typing_extensions import TypeAlias, TypedDict
 
-from mui.v6.grid.base import GridBaseModel
+from mui.v6.grid.base import GridBaseModel, OptionalKeys
 from mui.v6.grid.filter.item import GridFilterItem, GridFilterItemDict
 from mui.v6.grid.logic.operator import GridLogicOperator, GridLogicOperatorLiterals
 
@@ -134,22 +134,24 @@ class GridFilterModel(GridBaseModel):
         default=None,
         title="Logic Operator",
         description="Whether the row row must pass all filter items.",
-        alias="logicOperator",
+        validation_alias=AliasChoices("logic_operator", "logicOperator"),
     )
     quick_filter_logic_operator: QuickFilterLogicOperator = Field(
         default=None,
         title="Quick Filter Logic Operator",
         description="Whether the row must pass all values or at least one value.",
-        alias="quickFilterLogicOperator",
+        validation_alias=AliasChoices(
+            "quick_filter_logic_operator", "quickFilterLogicOperator"
+        ),
     )
     quick_filter_values: QuickFilterValues = Field(
         default=None,
         title="Quick Filter Values",
         description="Values used to quick filter rows.",
-        alias="quickFilterValues",
+        validation_alias=AliasChoices("quick_filter_values", "quickFilterValues"),
     )
 
-    _optional_keys: ClassVar[Set[Tuple[str, ...]]] = {
+    _optional_keys: ClassVar[OptionalKeys] = {
         ("logicOperator", "logic_operator"),
         ("quickFilterLogicOperator", "quick_filter_logic_operator"),
         ("quickFilterValues", "quick_filter_values"),

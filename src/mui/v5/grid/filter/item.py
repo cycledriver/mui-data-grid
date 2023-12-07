@@ -3,12 +3,12 @@ filter items.
 
 Each filter item corresponds to a configured filter from the data grid's filter window.
 """
-from typing import Any, ClassVar, Optional, Set, Tuple, Union
+from typing import Any, ClassVar, Optional, Union
 
-from pydantic import Field
+from pydantic import AliasChoices, Field
 from typing_extensions import TypeAlias, TypedDict
 
-from mui.v5.grid.base import GridBaseModel
+from mui.v5.grid.base import GridBaseModel, OptionalKeys
 
 ColumnField: TypeAlias = str
 Id: TypeAlias = Optional[Union[int, str]]
@@ -101,7 +101,7 @@ class GridFilterItem(GridBaseModel):
         default=...,
         title="Column Field",
         description="The column from which we want to filter the rows.",
-        alias="columnField",
+        validation_alias=AliasChoices("column_field", "columnField"),
     )
     id: Id = Field(
         default=None,
@@ -112,11 +112,11 @@ class GridFilterItem(GridBaseModel):
         default=None,
         title="Operator Value",
         description="The name of the operator we want to apply.",
-        alias="operatorValue",
+        validation_alias=AliasChoices("operator_value", "operatorValue"),
     )
     value: Value = Field(default=None, title="Value", description="The filtering value")
 
-    _optional_keys: ClassVar[Set[Tuple[str, ...]]] = {
+    _optional_keys: ClassVar[OptionalKeys] = {
         # be careful, this is a tuple because of the trailing comma
         ("id",),
         ("operatorValue", "operator_value"),

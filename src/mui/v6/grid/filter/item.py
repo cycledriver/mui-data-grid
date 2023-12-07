@@ -3,12 +3,12 @@ filter items.
 
 Each filter item corresponds to a configured filter from the data grid's filter window.
 """
-from typing import Any, ClassVar, Optional, Set, Tuple, Union
+from typing import Any, ClassVar, Optional, Union
 
 from pydantic import Field as PydanticField
 from typing_extensions import TypeAlias, TypedDict
 
-from mui.v6.grid.base import GridBaseModel
+from mui.v6.grid.base import GridBaseModel, OptionalKeys
 
 Id: TypeAlias = Optional[Union[int, str]]
 Field: TypeAlias = str
@@ -78,7 +78,7 @@ class GridFilterItem(GridBaseModel):
         default=None, title="Value", description="The filtering value"
     )
 
-    _optional_keys: ClassVar[Set[Tuple[str, ...]]] = {
+    _optional_keys: ClassVar[OptionalKeys] = {
         # be careful, this is a tuple because of the trailing comma
         ("id",),
         # be careful, this is a tuple because of the trailing comma

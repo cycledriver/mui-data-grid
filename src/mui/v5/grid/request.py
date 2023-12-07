@@ -1,7 +1,7 @@
 """The request module contains the model used to store parsed models."""
 from typing import ClassVar
 
-from pydantic import Field, field_validator
+from pydantic import AliasChoices, Field, field_validator
 
 from mui.v5.grid.base import GridBaseModel, OptionalKeys
 from mui.v5.grid.filter import GridFilterItem, GridFilterModel
@@ -32,7 +32,7 @@ class RequestGridModels(GridBaseModel):
         default_factory=GridFilterModel,
         title="Filter Model",
         description="The filter model representing how to filter the table's data.",
-        alias="filterModel",
+        validation_alias=AliasChoices("filter_model", "filterModel"),
         examples=[
             GridFilterModel(
                 items=[
@@ -55,14 +55,14 @@ class RequestGridModels(GridBaseModel):
         description=(
             "The pagination model representing how to paginate the table's data."
         ),
-        alias="paginationModel",
+        validation_alias=AliasChoices("pagination_model", "paginationModel"),
         examples=[GridPaginationModel(page=3, page_size=30)],
     )
     sort_model: GridSortModel = Field(
         default_factory=list,
         title="Sort Model",
         description="The sort model representing how to sort the table's data.",
-        alias="sortModel",
+        validation_alias=AliasChoices("sort_model", "sortModel"),
         examples=[[GridSortItem(field="fieldName", sort=GridSortDirection.DESC)]],
     )
 

@@ -1,6 +1,6 @@
 """The pagination model is designed to abstract the pagination-related data grid state.
 """
-from pydantic import Field, PositiveInt
+from pydantic import AliasChoices, Field, PositiveInt
 
 from mui.v6.grid.base import GridBaseModel
 
@@ -24,7 +24,7 @@ class GridPaginationModel(GridBaseModel):
         default=15,
         title="Page Size",
         description="The size of each results page",
-        alias="pageSize",
+        validation_alias=AliasChoices("page_size", "pageSize"),
         examples=[15],
     )
 
