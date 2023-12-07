@@ -787,6 +787,7 @@ files = [
 [[package]]
 name = "setuptools"
 version = "69.0.2"
+
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.8"
