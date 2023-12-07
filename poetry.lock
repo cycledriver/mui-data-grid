@@ -787,7 +787,6 @@ files = [
 [[package]]
 name = "setuptools"
 version = "69.0.2"
-
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.8"
@@ -966,4 +965,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8.1,<4"
-content-hash = "bca8c0361adcc80d400653fdc88a8af1512f70df7e4a4003ad00b6fed95a3d98"
+content-hash = "3b7b0127f65f563d5798abad31746844f806070e76eb4cc93585a7b0221156eb"
