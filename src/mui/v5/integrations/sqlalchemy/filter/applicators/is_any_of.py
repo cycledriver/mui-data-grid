@@ -2,6 +2,7 @@
 
 isAnyOf as in "Jonathan" is any of ["Aubrey", "Jasmine", "Jonathan"]
 """
+
 from typing import Any, Collection, cast
 
 

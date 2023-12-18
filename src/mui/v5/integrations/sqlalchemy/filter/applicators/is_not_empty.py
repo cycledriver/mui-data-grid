@@ -2,6 +2,7 @@
 
 isNotEmpty equates to IS NOT NULL comparisons
 """
+
 from operator import ne
 from typing import Any
 

@@ -21,17 +21,12 @@ typing-extensions = ">=4.7.1,<5"
 # sqlalchemy = ["sqlalchemy@>=1.4,<2"]
 
 [tool.poetry.group.github-actions.dependencies]
-black = "^23.11.0"
 codespell = "^2.2.6"
-example-isort-formatting-plugin = "^0.1.1"
-example-isort-sorting-plugin = "^0.1.0"
-hypothesis = "^6.91.0"
+hypothesis = "^6.92.1"
 interrogate = "^1.5.0"
-isort = "^5.12.0"
 mypy = "^1.7.1"
 pytest = "^7.4.3"
-ruff = "^0.1.7"
-setuptools = { python = ">=3.12,<4", version = "^69.0.2" }
+ruff = "^0.1.8"
 
 [tool.poetry.group.flask.dependencies]
 flask = "^3.0.0"
@@ -43,17 +38,6 @@ sqlalchemy2-stubs = ">=0.0.2a35"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.isort]
-formatter = "example"
-profile = "black"
-remove_redundant_aliases = true
-sort_order = "natural_plus"
-
-[tool.black]
-include = '\.pyi?$'
-line-length = 88
-target-version = ['py38']
 
 [tool.mypy]
 exclude = ['^compat\.py$']
@@ -153,6 +137,13 @@ extend-ignore = [
 ]
 line-length = 88
 target-version = "py38"
+fix = true
+preview = true
+
+[tool.ruff.format]
+# Use Unix-style line endings.
+line-ending = "lf"
+docstring-code-format = true
 
 [tool.ruff.mccabe]
 max-complexity = 15

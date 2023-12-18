@@ -78,23 +78,20 @@ jobs:
       - name: Install dependencies
         run: poetry install --with github-actions
 
-      - name: Run black
-        run: poetry run black src tests
-
-      - name: Run isort
-        run: poetry run isort src tests
-
-      - name: Run codespell
-        run: poetry run codespell --write-changes src tests *.md
-
-      - name: Run ruff
+      - name: Run ruff lint
         run: poetry run ruff .
+
+      - name: Run ruff format
+        run: poetry run ruff format .
 
       - name: Run mypy
         run: poetry run mypy .
 
       - name: Run pytest
         run: poetry run pytest -v
+
+      - name: Run codespell
+        run: poetry run codespell --write-changes src tests *.md
 
       - name: Check for clean working tree
         run: |

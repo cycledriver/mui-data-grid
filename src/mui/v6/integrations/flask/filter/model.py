@@ -2,6 +2,7 @@
 
 Supports parsing a GridFilterModel from Flask's request.args
 """
+
 from flask import request
 from typing_extensions import Literal
 

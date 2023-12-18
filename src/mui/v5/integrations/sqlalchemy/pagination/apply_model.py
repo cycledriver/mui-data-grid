@@ -1,4 +1,5 @@
 """The apply_model module applies a GridPaginationModel to a query."""
+
 from typing import TypeVar
 
 from sqlalchemy.orm import Query

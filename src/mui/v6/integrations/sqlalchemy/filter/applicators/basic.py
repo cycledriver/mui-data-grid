@@ -2,6 +2,7 @@
 
 Literal operators are literal representations of a built-in operator.
 """
+
 from operator import eq, ge, gt, le, lt, ne
 from typing import Any
 

@@ -2,6 +2,7 @@
 
 isEmpty equates to IS NULL comparisons
 """
+
 from operator import eq
 from typing import Any
 

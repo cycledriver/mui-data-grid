@@ -1,4 +1,5 @@
 """The model module holds the GridSortModel, a type alias."""
+
 from typing import List
 
 from typing_extensions import TypeAlias

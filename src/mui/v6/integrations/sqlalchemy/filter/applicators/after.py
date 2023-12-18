@@ -1,5 +1,6 @@
 """The is after applicator applies the is after operator to the data.
 """
+
 from datetime import datetime
 from operator import gt
 from typing import Any

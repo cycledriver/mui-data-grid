@@ -3,6 +3,7 @@
 A factory is responsible for taking a SQLAlchemy model and converting it into another
 data type / structure.
 """
+
 from typing import Callable, TypeVar
 
 from typing_extensions import TypeAlias

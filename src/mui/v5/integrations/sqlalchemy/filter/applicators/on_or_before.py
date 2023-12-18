@@ -1,5 +1,6 @@
 """The is before applicator applies the is before operator to the data.
 """
+
 from datetime import datetime
 from operator import le
 from typing import Any

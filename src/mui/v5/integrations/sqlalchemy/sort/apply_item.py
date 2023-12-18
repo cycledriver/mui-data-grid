@@ -1,4 +1,5 @@
 """The apply_item module is responsible for building the item's UnaryExpression."""
+
 from typing import Any, Callable, Optional
 
 from sqlalchemy import asc, desc

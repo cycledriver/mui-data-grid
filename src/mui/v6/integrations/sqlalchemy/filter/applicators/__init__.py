@@ -3,6 +3,7 @@
 These generally take two values, the column and the value and apply the operator
 in a SQLAlchemy compatible way, to the query.
 """
+
 from mui.v6.integrations.sqlalchemy.filter.applicators.after import apply_after_operator
 from mui.v6.integrations.sqlalchemy.filter.applicators.basic import (
     SUPPORTED_BASIC_OPERATORS,

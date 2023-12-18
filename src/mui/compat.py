@@ -1,4 +1,5 @@
 """The compat module is a compatibility module for backporting future features."""
+
 from enum import Enum
 from typing import Any, List, Tuple
 

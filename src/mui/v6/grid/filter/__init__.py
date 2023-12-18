@@ -1,5 +1,6 @@
 """The filter module contains the models, types, etc. about filtering a MUI data grid.
 """
+
 from mui.v6.grid.filter.item import (
     Field,
     GridFilterItem,

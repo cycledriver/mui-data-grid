@@ -1,6 +1,7 @@
 """The apply_models module is used to apply the X-Data-Grid state models, such as the
 GridFilterModel, GridSortModel, and GridPaginationModel to a SQLAlchemy ORM query.
 """
+
 from typing import Optional, TypeVar
 
 from sqlalchemy.orm import Query

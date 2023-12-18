@@ -2,6 +2,7 @@
 
 endsWith is meant as in "Jonathan" ends with "than".
 """
+
 from typing import Any
 
 

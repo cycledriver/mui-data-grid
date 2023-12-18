@@ -3,6 +3,7 @@
 This structure is used to provide helpers related to pagination, such as
 total row counts.
 """
+
 from math import ceil
 from typing import Generic, List, Optional, TypeVar, Union, overload
 
@@ -35,7 +36,7 @@ class DataGridQuery(Generic[_T]):
     query: "Query[_T]"
     sort_model: Optional[GridSortModel]
 
-    def __init__(
+    def __init__(  # noqa: PLR0917
         self,
         query: "Query[_T]",
         column_resolver: Resolver,
@@ -147,7 +148,6 @@ class DataGridQuery(Generic[_T]):
         Returns:
             List[_T]: The list of models, without conversion.
         """
-        ...
 
     @overload
     def items(self, factory: Factory[_T, _R]) -> List[_R]:
@@ -160,7 +160,6 @@ class DataGridQuery(Generic[_T]):
         Returns:
             List[_R]: The list of created items.
         """
-        ...
 
     def items(
         self, factory: Optional[Factory[_T, _R]] = None

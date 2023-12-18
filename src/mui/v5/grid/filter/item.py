@@ -3,6 +3,7 @@ filter items.
 
 Each filter item corresponds to a configured filter from the data grid's filter window.
 """
+
 from typing import Any, ClassVar, Optional, Union
 
 from pydantic import AliasChoices, Field

@@ -1,5 +1,6 @@
 """The is not applicator applies the is not operator to the data.
 """
+
 from datetime import date, datetime, time
 from operator import ne
 from typing import Any

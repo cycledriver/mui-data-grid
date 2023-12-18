@@ -1,5 +1,6 @@
 """The pagination model is designed to abstract the pagination-related data grid state.
 """
+
 from pydantic import AliasChoices, Field, PositiveInt
 
 from mui.v6.grid.base import GridBaseModel

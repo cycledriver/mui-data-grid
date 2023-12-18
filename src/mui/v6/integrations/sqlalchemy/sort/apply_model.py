@@ -1,4 +1,5 @@
 """The apply_model module is responsible for applying a GridSortModel to a query."""
+
 from typing import TypeVar
 
 from sqlalchemy.orm import Query

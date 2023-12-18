@@ -3,6 +3,7 @@
 The grid filter model is responsible for modelling, or representing using
 programming data structures, the state of the data grid.
 """
+
 from typing import Any, ClassVar, List, Optional, Union
 
 from pydantic import AliasChoices, Field

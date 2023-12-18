@@ -1,4 +1,5 @@
 """The operator module is responsible for containing the GridLinkOperator enum."""
+
 from enum import unique
 
 from typing_extensions import Literal, TypeAlias

@@ -2,6 +2,7 @@
 
 Supports parsing a GridPaginationModel from Flask's request.args
 """
+
 from typing import Optional
 
 from flask import request

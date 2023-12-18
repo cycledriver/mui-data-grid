@@ -1,4 +1,5 @@
 """The request module contains the model used to store parsed models."""
+
 from typing import ClassVar
 
 from pydantic import AliasChoices, Field, field_validator

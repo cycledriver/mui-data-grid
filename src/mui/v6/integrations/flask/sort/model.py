@@ -2,6 +2,7 @@
 
 Supports parsing a GridSortModel from Flask's request.args
 """
+
 from flask import request
 from pydantic import TypeAdapter
 from typing_extensions import Literal

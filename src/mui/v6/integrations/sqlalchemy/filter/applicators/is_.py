@@ -2,6 +2,7 @@
 
 Meant as an equality check.
 """
+
 from datetime import date, datetime, time
 from operator import eq
 from typing import Any

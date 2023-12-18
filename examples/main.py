@@ -130,17 +130,15 @@ def print_sorted_details() -> Response:
         pagination_model_key=PAGINATION_MODEL_KEY,
         sort_model_key=SORT_MODEL_KEY,
     )
-    return jsonify(
-        {
-            # sort_model is a list[GridSortItem]
-            SORT_MODEL_KEY: [model.model_dump() for model in models.sort_model],
-            # filter_model is GridFilterModel
-            FILTER_MODEL_KEY: models.filter_model.model_dump(),
-            # pagination_model is a GridPaginationModel
-            # providing a consistent interface to pagination parameters
-            PAGINATION_MODEL_KEY: models.pagination_model,
-        }
-    )
+    return jsonify({
+        # sort_model is a list[GridSortItem]
+        SORT_MODEL_KEY: [model.model_dump() for model in models.sort_model],
+        # filter_model is GridFilterModel
+        FILTER_MODEL_KEY: models.filter_model.model_dump(),
+        # pagination_model is a GridPaginationModel
+        # providing a consistent interface to pagination parameters
+        PAGINATION_MODEL_KEY: models.pagination_model,
+    })
 
 
 @app.route("/query")
@@ -167,15 +165,13 @@ def print_query_results() -> Response:
             column_resolver=example_model_resolver,
         )
         total = dg_query.total()
-        return jsonify(
-            {
-                "items": dg_query.items(factory=ExampleModel.dict_factory),
-                "page": dg_query.page,
-                "pageSize": dg_query.page_size,
-                "pages": dg_query.pages(total=total),
-                "total": total,
-            }
-        )
+        return jsonify({
+            "items": dg_query.items(factory=ExampleModel.dict_factory),
+            "page": dg_query.page,
+            "pageSize": dg_query.page_size,
+            "pages": dg_query.pages(total=total),
+            "total": total,
+        })
     finally:
         session.close()
 

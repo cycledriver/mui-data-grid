@@ -1,5 +1,6 @@
 """The is on or after applicator applies the is on or after operator to the data.
 """
+
 from datetime import datetime
 from operator import ge
 from typing import Any
