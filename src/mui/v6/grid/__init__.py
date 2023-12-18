@@ -1,7 +1,6 @@
 from mui.v6.grid.base import GridBaseModel
-from mui.v6.grid.filter import CamelCaseGridFilterModelDict
-from mui.v6.grid.filter import Field as FilterField
 from mui.v6.grid.filter import (
+    CamelCaseGridFilterModelDict,
     GridFilterItem,
     GridFilterItemDict,
     GridFilterModel,
@@ -18,6 +17,7 @@ from mui.v6.grid.filter import (
     SnakeCaseGridFilterModelDict,
     Value,
 )
+from mui.v6.grid.filter import Field as FilterField
 from mui.v6.grid.logic import GridLogicOperator, GridLogicOperatorLiterals
 from mui.v6.grid.pagination import GridPaginationModel
 from mui.v6.grid.request import RequestGridModels

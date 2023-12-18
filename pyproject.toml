@@ -106,6 +106,7 @@ select = [
     "FIX",
     "FLY",
     "G",
+    "I",
     "ICN",
     "PERF",
     "PGH",

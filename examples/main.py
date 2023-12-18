@@ -8,10 +8,9 @@ from typing import Dict
 import sqlalchemy as sa
 from flask import Flask, jsonify
 from flask.wrappers import Response
-from sqlalchemy.orm import DeclarativeMeta, Mapped, registry, sessionmaker
-
 from mui.v5.integrations.flask import get_grid_models_from_request
 from mui.v5.integrations.sqlalchemy import apply_request_grid_models_to_query
+from sqlalchemy.orm import DeclarativeMeta, Mapped, registry, sessionmaker
 
 app = Flask(__name__)
 engine = sa.create_engine(url="sqlite:///:memory:")
