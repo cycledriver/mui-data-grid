@@ -4,7 +4,6 @@ from typing import Any, Callable, TypeVar
 
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import Query
-from sqlalchemy.sql.elements import BooleanClauseList
 
 from mui.v6.grid import GridFilterItem, GridFilterModel, GridLogicOperator
 from mui.v6.integrations.sqlalchemy.filter.applicators import (
@@ -30,7 +29,7 @@ _Q = TypeVar("_Q")
 
 def _get_link_operator(
     model: GridFilterModel,
-) -> Callable[[Any], BooleanClauseList[Any]]:
+) -> Callable[[Any], Any]:
     """Retrieves the correct filter operator for a model.
 
     If the link operator is None, `AND` is used by default.
@@ -39,8 +38,13 @@ def _get_link_operator(
         model (GridFilterModel): The grid filter model which is being applied to the
             SQLAlchemy query.
 
-    Returns:
+    Returns SQLAlchemy V14:
+
         Callable[[Any], BooleanClauseList[Any]]: The `or_` and `and_` operators for
+            application to SQLAlchemy filters.
+
+    Returns SQLAlchemy V2+:
+        Callable[[Any], ColumnElement[bool]]: The `or_` and `and_` operators for
             application to SQLAlchemy filters.
     """
     if model.logic_operator is None or model.logic_operator == GridLogicOperator.And:
